@@ -1,8 +1,8 @@
-/**
- * This script uses the BLE scan functionality in scripting
- * Selects Shelly BLU Buttons from the aired advertisements, decodes
- * the service data payload and determine the button press type and access the correct cooresponding web URL for actions
-// You can rely only on the address filtering and forego device name matching
+
+ // This script uses the BLE scan functionality in scripting
+ // Selects Shelly BLU Buttons from the aired advertisements, decodes
+ // the service data payload and determine the button press type and access the correct cooresponding web URL for actions
+ // You can rely only on the address filtering and forego device name matching
 
 function GetWebURL(ExternalURL) {
   Shelly.call(
@@ -306,3 +306,4 @@ function init() {
 
 
 init();
+
