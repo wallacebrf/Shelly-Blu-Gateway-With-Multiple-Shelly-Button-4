@@ -1,40 +1,7 @@
 /**
  * This script uses the BLE scan functionality in scripting
  * Selects Shelly BLU Buttons from the aired advertisements, decodes
- * the service data payload and toggles a relay on the device on
- * button push
- */
-
-// Shelly BLU devices:
-// SBBT - Shelly BLU Button
-// SBDW - Shelly BLU DoorWindow
-
-// BTHome data format: https://bthome.io/format/
-
-// sample Shelly DW service_data payload
-// 0x40 0x00 0x4E 0x01 0x64 0x05 0x00 0x00 0x00 0x2D 0x01 0x3F 0x00 0x00
-
-// First byte: BTHome device info, 0x40 - no encryption, BTHome v.2
-// bit 0: “Encryption flag”
-// bit 1-4: “Reserved for future use”
-// bit 5-7: “BTHome Version”
-
-// AD 0: PID, 0x00
-// Value: 0x4E
-
-// AD 1: Battery, 0x01
-// Value, 100%
-
-// AD 2: Illuminance, 0x05
-// Value: 0
-
-// AD 3: Window, 0x2D
-// Value: true, open
-
-// AD 4: Rotation, 0x3F
-// Value: 0
-
-// Device name can be obtained if an active scan is performed
+ * the service data payload and determine the button press type and access the correct cooresponding web URL for actions
 // You can rely only on the address filtering and forego device name matching
 
 function GetWebURL(ExternalURL) {
@@ -336,5 +303,6 @@ function init() {
   // subscribe a callback to BLE scanner
   BLE.Scanner.Subscribe(scanCB);
 }
+
 
 init();
